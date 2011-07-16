@@ -1,6 +1,5 @@
 from pyccuracy.actions import ActionBase
 from pyccuracy.actions.core.element_actions import resolve_element_key
-from accessibility_actions import teste
 
 # TEST ACTION
 class ElementClickAction(ActionBase):
@@ -14,8 +13,7 @@ class ElementClickAction(ActionBase):
         opa = ""
         self.assert_element_is_visible(context, element_key, error_message)
         text = context.browser_driver.exec_js('this.browserbot.getCurrentWindow().document.querySelectorAll("#introduction")[0].focus();')
-        if (teste()):
-            raise self.failed("opa pegou")
+        raise self.failed("opa pegou")
         find_xpath_current_js = """
            var current_element = this.browserbot.getCurrentWindow().document.activeElement; 
            var all_links = this.browserbot.getCurrentWindow().document.getElementsByTagName('a');
