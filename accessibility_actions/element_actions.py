@@ -2,6 +2,7 @@ from pyccuracy.actions import ActionBase
 from pyccuracy.actions.core.element_actions import resolve_element_key
 from accessibility_actions import teste
 
+# TEST ACTION
 class ElementClickAction(ActionBase):
     __builtin__ = True
     regex = r'^(And )?I tab navigatex to [\"](?P<element_name>[^"]+)[\"] (?P<element_type><element selector>)$'
