@@ -4,11 +4,14 @@ So that I can look for further information about watinha
 
 Scenario 1 - Clicking in the first subsection
 Given
-    I go to Watinha Page
+    I go to Google Page
     And I wait for the page to load
 When
-    I tab navigate to "introduction link" link 
-    And I wait for 15 seconds
-    And I see "opa" element
+    I tab navigate to "Pesquisa Google" element
+    And I fill the focused element with "watinha"
+    And I press enter
+    And I tab navigate to "Willian Massami Watanabe - Curriculum" element
+    And I press enter
 Then
-    I see "introduction link" element contains "introduction link for watinha page"
+    I wait for the page to load
+    I see "Interactive Curriculum - Willian Massami Watanabe" title
