@@ -8,7 +8,7 @@ Given
     And I wait for the page to load
 When
     I tab navigate to "Pesquisa Google" element
-    And I fill the focused element with "watinha"
+    And I type "watinha"
     And I press enter
     And I tab navigate to "Willian Massami Watanabe - Curriculum" element
     And I press enter

@@ -4,7 +4,7 @@ from accessibility_actions import teste
 
 class ElementClickAction(ActionBase):
     __builtin__ = True
-    regex = r'^(And )?I tab navigate to [\"](?P<element_name>[^"]+)[\"] (?P<element_type><element selector>)$'
+    regex = r'^(And )?I tab navigatex to [\"](?P<element_name>[^"]+)[\"] (?P<element_type><element selector>)$'
 
     def execute(self, context, element_type, element_name):
         element_key = resolve_element_key(context, element_type, element_name, self.resolve_element_key)
