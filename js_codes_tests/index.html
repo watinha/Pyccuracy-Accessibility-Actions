@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"0>
+        <title>Unit tests for js codes file</title>
+        <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" charset="utf-8" />
+        <script type="text/javascript" charset="utf-8" src="qunit.js"></script>
+    </head>
+    <body>
+    <h1 id="qunit-header">QUnit example</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">
+      <h1 tabindex=1>First header</h1>
+      <h2>Second header</h2>
+      <a href="#link1">link 1</a>
+      <a href="#link2">link 2</a>
+      <a href="#link3">link 3</a>
+      <h2>Third header</h2>
+      <a href="#link4">link 4</a>
+      <a href="#link5">link 5</a>
+      <form action="index_submit" method="get" accept-charset="utf-8">
+          <input name="textinput" value=""></input>
+          <input type="submit" value="Continue &rarr;" />
+      </form>
+      <h2>Fourth header</h2>
+      <button>first button</button>
+      <span tabindex=0>interactive span</span>
+      <div>Some text inside a div</div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+    window.onload = function(){
+        module("first test...");
+        test("sanity check for javascript", function(){
+            ok(false, "lets see if everything is working...");
+        });
+    }
+    </script>
+    </body>
+</html>
