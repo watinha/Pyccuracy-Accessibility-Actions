@@ -13,7 +13,7 @@ class TabNavigationActionTest(unittest.TestCase):
         function tab_navigation(text){
             console.log('unit_testing:' + text);
         }
-        result tab_navigation("a link to look for");
+        result = tab_navigation("a link to look for");
         """
 
         context_mock = Mock()
