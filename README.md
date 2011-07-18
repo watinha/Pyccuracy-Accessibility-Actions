@@ -6,7 +6,9 @@ However pyccuracy still have not implemented actions that can be classified as a
 
 Howto use
 =========
+
 --> on development stages, so if you want to try the new actions out, you will have to add them to pyccuracy\_console with the -A option.
+
 --> as soon as the development evolves I will be putting new information on how to use accessibility actions, one-by-one. :)
 
 Goal
@@ -19,6 +21,32 @@ Current Status
 ==============
 Still in the very beginning of the coding. Should try implement a few accessible actions for users.
 
+Code architecture
+=================
+The code ir organized in two folds:
+- Pyccuracy actions implemented in python and tested with Python unit tests
+- Javascript implementation of events to be run in the browser and tested with Qunit
+
+In order to validate the integration of both codes (python and javascript) I am currently using a few pyccuracy base scenarios as acceptance testing for the complete application. If the pyccuracy scenarios are run successfully, them the applications is OK.
+
+                                                                    |
+_____________         _____________           __________________    |
+|           |         |           |           |                |    |
+| Selenium  | <------ |  Python   | <-------- |   JavaScript   |    |
+|  server   |         | Pyccuracy |           |     event      |    |      
+|           |         |  actions  |           | implementation |    |
+|___________|         |___________|           |________________|    |        _______________
+                            |                          |            |        |             | 
+                            |                          |            | -----> |  Pyccuracy  | 
+                      _____________              _______________    |        |    Tests    |
+                      |           |              |             |    |        |  Scenarios  |
+                      |  Python   |              |  JavaScript |    |        | (Acceptance)|
+                      |   unit    |              |    QUnit    |    |        |_____________|
+                      |   test    |              |             |    |
+                      |___________|              |_____________|    |
+                                                                    |
+--------------------------------------------------------------------|
+                                                                    
 Contact
 =======
 If you find these information useful or would like to contribute to this project, feel free to send me a message: talk@watinha.com.
