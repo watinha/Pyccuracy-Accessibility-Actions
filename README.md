@@ -23,7 +23,7 @@ Still in the very beginning of the coding. Should try implement a few accessible
 
 Code architecture
 =================
-The code ir organized in two folds:
+The code is organized in two folds:
 
 - Pyccuracy actions implemented in python and tested with Python unit tests
 
@@ -54,3 +54,10 @@ _____________         _____________           __________________    |
 Contact
 =======
 If you find these information useful or would like to contribute to this project, feel free to send me a message: talk@watinha.com.
+
+WORK LOG
+========
+
+- work a javascript log to debug application
+
+- implement remaining actions for the first established scenario 
