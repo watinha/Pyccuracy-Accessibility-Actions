@@ -3,7 +3,7 @@ import re
 
 class JsCodeLoader:
 
-    JS_DIR = '../js_codes/'
+    JS_DIR = 'js_codes/'
     FUNCTION_REGEXP = "(function)\s+((.)+)\s*\((.)*\)\s*\{"
 
     def load(self, js_filename, *args):

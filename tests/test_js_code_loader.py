@@ -28,7 +28,7 @@ result = tab_navigation("argument1");"""
             js_loader = JsCodeLoader()
             result = js_loader.load(js_file_dummy, 'argument1')
 
-            mocked_open.assert_called_with('../js_codes/' + js_file_dummy, 'r')
+            mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
 
         self.assertEquals(expected_js_code_dummy, result)
@@ -56,7 +56,7 @@ result = keyboard_action("argument1","argument2","argument3");"""
             js_loader = JsCodeLoader()
             result = js_loader.load(js_file_dummy, 'argument1', 'argument2', 'argument3')
 
-            mocked_open.assert_called_with('../js_codes/' + js_file_dummy, 'r')
+            mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
 
         self.assertEquals(expected_js_code_dummy, result)
@@ -85,7 +85,7 @@ result = other_cool_function();"""
             js_loader = JsCodeLoader()
             result = js_loader.load(js_file_dummy)
 
-            mocked_open.assert_called_with('../js_codes/' + js_file_dummy, 'r')
+            mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
 
         self.assertEquals(expected_js_code_dummy, result)
