@@ -51,3 +51,25 @@ class TabNavigationActionTest(unittest.TestCase):
             except ActionFailedError:
                 self.assertTrue(True)
 
+
+    def test_execute_function_should_fail_if_max_number_of_tab_presses_exceed(self):
+        element_text_dummy = 'a link to look for'
+        js_code_dummy = """
+        function tab_navigation(text){
+            console.log('unit_testing:' + text);
+        }
+        result tab_navigation("a link to look for");
+        """
+
+        context_mock = Mock()
+        context_mock.browser_driver.exec_js.return_value = 'exceed max number of tab keys pressed'
+
+        with patch.object(JsCodeLoader, 'load') as load_mock:
+            load_mock.return_value = js_code_dummy
+            tab_navigation = TabNavigationAction()
+            try:
+                tab_navigation.execute(context_mock, 'element', element_text_dummy)
+                self.fail('if "exceed max number of tab keys pressed" received should raise a failed scenario exception')
+            except ActionFailedError:
+                self.assertTrue(True)
+
