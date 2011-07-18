@@ -10,6 +10,16 @@ document.addEventListener("load", function(e){
         equal(document.activeElement, button_element);
     });
 
+    test("tab_navigation should return the text inside the element it reaches and set the activeElement for title and name", function(){
+        var result = tab_navigation("textinput");
+        equal(result, "textinput");
+        equal(document.activeElement.name, "textinput");
+
+        result = tab_navigation("textinput2");
+        equal(result, "textinput2");
+        equal(document.activeElement.title, "textinput2");
+    });
+
     test("tab_navigation should return 'element not found' when the element been looked for is not focusable", function(){
         var result = tab_navigation("Fourth header");
         equal(result, "element not found");

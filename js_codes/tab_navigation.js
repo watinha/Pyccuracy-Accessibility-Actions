@@ -42,6 +42,10 @@ function tab_navigation(element_text, tab_limit){
         focusable_nodes[cont].focus();
         if (focusable_nodes[cont].innerHTML.search(element_text) >= 0)
             return element_text;
+        if(focusable_nodes[cont].title && focusable_nodes[cont].title.search(element_text) >= 0)
+            return element_text;
+        if(focusable_nodes[cont].name && focusable_nodes[cont].name.search(element_text) >= 0)
+            return element_text;
     }
     if((cont - current_index) == tab_limit)
         return this.constants.TAB_LIMIT_EXCEEDED;
