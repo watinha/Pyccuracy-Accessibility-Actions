@@ -24,10 +24,14 @@ Still in the very beginning of the coding. Should try implement a few accessible
 Code architecture
 =================
 The code ir organized in two folds:
+
 - Pyccuracy actions implemented in python and tested with Python unit tests
+
 - Javascript implementation of events to be run in the browser and tested with Qunit
 
 In order to validate the integration of both codes (python and javascript) I am currently using a few pyccuracy base scenarios as acceptance testing for the complete application. If the pyccuracy scenarios are run successfully, them the applications is OK.
+
+check it out as a ASCII model :)
 
                                                                     |
 _____________         _____________           __________________    |
