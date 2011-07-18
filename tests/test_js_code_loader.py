@@ -11,7 +11,8 @@ class JsCodeLoaderTest(unittest.TestCase):
             console.log('unit_testing:' + text);
         }"""
         dummy_argument = 'argument1'
-        expected_js_code_dummy = """
+        expected_js_code_dummy = """current_document = this.browserbot.getCurrentWindow().document;
+
         function tab_navigation(text){
             console.log('unit_testing:' + text);
         }
@@ -38,7 +39,8 @@ result = tab_navigation("argument1");"""
             console.log('other cool test');
         }"""
         dummy_argument = 'argument1'
-        expected_js_code_dummy = """
+        expected_js_code_dummy = """current_document = this.browserbot.getCurrentWindow().document;
+
         function keyboard_action(text){
             console.log('other cool test');
         }
@@ -66,7 +68,8 @@ result = keyboard_action("argument1","argument2","argument3");"""
             console.log('other cool test');
         }"""
         dummy_argument = 'argument1'
-        expected_js_code_dummy = """
+        expected_js_code_dummy = """current_document = this.browserbot.getCurrentWindow().document;
+
         function other_cool_function(){
             console.log('other cool test');
         }

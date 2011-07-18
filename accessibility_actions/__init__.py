@@ -14,6 +14,10 @@ class JsCodeLoader:
         function_name = function_match.group(2)
 
         function_arguments = ','.join(['"' + arg + '"' for arg in args])
+
+        # returns the result of javascript code to pyccuracy interface with selenium through exec_js browser_driver method
         js_result_line = 'result = ' + function_name + '(' + function_arguments + ');'
 
-        return js_code + "\n" + js_result_line
+        # getting the DOM document element reference from within selenium
+        js_header = "current_document = this.browserbot.getCurrentWindow().document;"
+        return js_header + "\n" + js_code + "\n" + js_result_line
