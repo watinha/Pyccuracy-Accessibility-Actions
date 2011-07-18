@@ -6,7 +6,7 @@ class TabNavigationAction(ActionBase):
     regex = r'^(And )?I tab navigate to [\"](?P<element_text>[^"]+)[\"] (?P<element_type><element selector>)$'
     NOT_FOUND_ELEMENT = 'element not found'
     MAX_TAB_PRESSES_EXCEEDED = 'exceed max number of tab keys pressed'
-    MAX_NUMBER_OF_TAB_KEYS = 30
+    MAX_NUMBER_OF_TAB_KEYS = '30'
 
     def execute(self, context, element_type, element_text):
         js_loader = JsCodeLoader()

@@ -25,7 +25,7 @@ class TabNavigationActionTest(unittest.TestCase):
             tab_navigation.execute(context_mock, 'element', element_text_dummy)
 
         self.assertTrue(load_mock.called)
-        load_mock.assert_called_with('tab_navigation.js', element_text_dummy, 30)
+        load_mock.assert_called_with('tab_navigation.js', element_text_dummy, '30')
 
         self.assertTrue(context_mock.browser_driver.exec_js.called)
         context_mock.browser_driver.exec_js.assert_called_with(js_code_dummy)
