@@ -19,5 +19,5 @@ class JsCodeLoader:
         js_result_line = 'result = ' + function_name + '(' + function_arguments + ');'
 
         # getting the DOM document element reference from within selenium
-        js_header = "current_document = this.browserbot.getCurrentWindow().document;"
+        js_header = "current_document = this.browserbot.getCurrentWindow().document; current_window = this.browserbot.getCurrentWindow();"
         return js_header + "\n" + js_code + "\n" + js_result_line
