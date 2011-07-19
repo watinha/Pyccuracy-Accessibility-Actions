@@ -32,7 +32,14 @@ document.addEventListener("load", function(e){
         equal(result, "exceed max number of tab keys pressed");
     });
 
+    test("tab_navigation should ignore links with no href attribute", function(){
+        document.getElementsByTagName("h1")[1].focus();
+        var result = tab_navigation("non-link");
+        equals(result, "element not found");
+    });
+
     test("tab_navigation should ignore display:none and visibility:hidden elements", function() {
+        document.getElementsByTagName("h1")[1].focus();
         var result = tab_navigation("invisible link1");
         equal(result, "element not found");
 
@@ -44,6 +51,7 @@ document.addEventListener("load", function(e){
     });
 
     test("tab_navigation should get sequential elements with different number of tab limits", function(){
+        document.getElementsByTagName("h1")[1].focus();
         var result = tab_navigation("First header");
         equal(result, "First header");
         var searched_element = document.getElementsByTagName("h1")[1];

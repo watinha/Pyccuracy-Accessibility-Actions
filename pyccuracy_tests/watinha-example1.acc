@@ -22,13 +22,9 @@ Given
     I wait for the page to load
     I wait for 5 seconds
 When
-    I tab navigate to "talk" element
-    I wait for 15 seconds
-    I tab navigate to "watinha.com" element
-    I wait for 15 seconds
-    I tab navigate to "Willian" element
-    I wait for 15 seconds
-    I tab navigate to "Twitter" element
-    I wait for 15 seconds
+    I tab navigate to "talk" element with 2 key presses
+    I tab navigate to "Twitter" element with 1 key presses
+    I tab navigate to "watinha.com" element with 1 key presses
+    I tab navigate to "Willian" element with 1 key presses
 Then
     I see "Interactive Curriculum - Willian Massami Watanabe" title

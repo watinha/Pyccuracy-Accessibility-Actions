@@ -62,4 +62,4 @@ WORK LOG
 
 - implement remaining actions for the first established scenario 
 
-- filter tab navigation links considering its visibility (window.getComputedStyle(document.querySelectorAll('div.introduction a')[1], null).getPropertyValue('visibility') TODO)
+- ignore non-textual elements

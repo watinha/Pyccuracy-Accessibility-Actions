@@ -7,7 +7,8 @@ function tab_navigation(element_text, tab_limit){
 
     if( ! tab_limit)
         tab_limit = this.constants.TAB_LIMIT;
-
+    else
+        tab_limit = parseInt(tab_limit);
     /*
      * Function to look into parent nodes styles to
      *  identify whether elements are visible or not
@@ -31,7 +32,7 @@ function tab_navigation(element_text, tab_limit){
      * retrieving focusable elements
      */
     for (var cont = 0; cont < nodes.length; cont++) {
-        if (nodes[cont].tabIndex >= 0 && is_visible(nodes[cont])){
+        if (nodes[cont].tabIndex >= 0 && is_visible(nodes[cont]) && (nodes[cont].tagName != "A" || nodes[cont].href)){
             /*
              * ordering accordingly to tabindex (NO OPTIMIZATION IMPLEMENTED SIMPLE INSERTION SORT)
              */
@@ -54,7 +55,7 @@ function tab_navigation(element_text, tab_limit){
      * Setting focus for focusable_nodes in order looking for element_text within it
      */
     var cont;
-    for (cont = (current_index); cont < focusable_nodes.length && (cont - current_index) < tab_limit; cont++){
+    for (cont = (current_index); cont < focusable_nodes.length && (cont - current_index) <= tab_limit; cont++){
         focusable_nodes[cont].focus();
         if (focusable_nodes[cont].innerHTML.search(element_text) >= 0)
             return element_text;
@@ -63,7 +64,7 @@ function tab_navigation(element_text, tab_limit){
         if(focusable_nodes[cont].name && focusable_nodes[cont].name.search(element_text) >= 0)
             return element_text;
     }
-    if((cont - current_index) == tab_limit)
+    if((cont - current_index) == (tab_limit + 1))
         return this.constants.TAB_LIMIT_EXCEEDED;
     return this.constants.ELEMENT_NOT_FOUND;
 }
