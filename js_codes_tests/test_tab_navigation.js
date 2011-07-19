@@ -1,5 +1,6 @@
 document.addEventListener("load", function(e){
     current_document = document;
+    current_window = window;
 
     module("tab_navigation");
 
@@ -29,6 +30,17 @@ document.addEventListener("load", function(e){
         document.getElementsByTagName("h1")[1].focus();
         var result = tab_navigation("interactive span", 5);
         equal(result, "exceed max number of tab keys pressed");
+    });
+
+    test("tab_navigation should ignore display:none and visibility:hidden elements", function() {
+        var result = tab_navigation("invisible link1");
+        equal(result, "element not found");
+
+        result = tab_navigation("invisible link2");
+        equal(result, "element not found");
+
+        result = tab_navigation("invisible link3");
+        equal(result, "element not found");
     });
 
     test("tab_navigation should get sequential elements with different number of tab limits", function(){
