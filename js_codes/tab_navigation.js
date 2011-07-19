@@ -38,7 +38,7 @@ function tab_navigation(element_text, tab_limit){
      * Setting focus for focusable_nodes in order looking for element_text within it
      */
     var cont;
-    for (cont = current_index; cont < focusable_nodes.length && (cont - current_index) < tab_limit; cont++){
+    for (cont = (current_index); cont < focusable_nodes.length && (cont - current_index) < tab_limit; cont++){
         focusable_nodes[cont].focus();
         if (focusable_nodes[cont].innerHTML.search(element_text) >= 0)
             return element_text;

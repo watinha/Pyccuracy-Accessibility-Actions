@@ -15,3 +15,20 @@ When
 Then
     I wait for the page to load
     I see "Interactive Curriculum - Willian Massami Watanabe" title
+
+Scenario 2 - Trying out the navigate action
+Given
+    I go to "http://watinha.com"
+    I wait for the page to load
+    I wait for 5 seconds
+When
+    I tab navigate to "talk" element
+    I wait for 15 seconds
+    I tab navigate to "watinha.com" element
+    I wait for 15 seconds
+    I tab navigate to "Willian" element
+    I wait for 15 seconds
+    I tab navigate to "Twitter" element
+    I wait for 15 seconds
+Then
+    I see "Interactive Curriculum - Willian Massami Watanabe" title
