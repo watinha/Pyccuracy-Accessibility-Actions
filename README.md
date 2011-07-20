@@ -62,4 +62,8 @@ WORK LOG
 
 - implement remaining actions for the first established scenario 
 
+- Fix type action ***
+
+- Implement look for content action
+
 - ignore non-textual elements
