@@ -13,7 +13,6 @@ class ElementClickAction(ActionBase):
         opa = ""
         self.assert_element_is_visible(context, element_key, error_message)
         text = context.browser_driver.exec_js('this.browserbot.getCurrentWindow().document.querySelectorAll("#introduction")[0].focus();')
-        raise self.failed("opa pegou")
         find_xpath_current_js = """
            var current_element = this.browserbot.getCurrentWindow().document.activeElement; 
            var all_links = this.browserbot.getCurrentWindow().document.getElementsByTagName('a');

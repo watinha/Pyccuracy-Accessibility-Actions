@@ -11,7 +11,7 @@ import sys
 sys.path.append("tests")
 
 from test_navigation_actions import TabNavigationActionTest
-from test_keyboard_actions import FillFocusedElementActionTest 
+from test_keyboard_actions import FillFocusedElementActionTest, PressEnterActionTest
 from test_js_code_loader import JsCodeLoaderTest
 
 if __name__ == "__main__":
