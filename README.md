@@ -1,6 +1,6 @@
 Introduction
 ============
-The main objective of this project is to implement accessibility actions for the pyccuracy, web acceptance testing application (http://pyccuracy.org). Pyccuracy makes use of natural language expressions to generate user stories and acceptance scenarios that are automatically run in the browser, evaluating the behaviour of all layers of a web application (server and client side-scripting). 
+The main objective of this project is to implement accessibility actions for the pyccuracy, web acceptance testing application (http://pyccuracy.org). Pyccuracy makes use of natural language expressions to generate user stories and acceptance scenarios that are automatically run in the browser, evaluating the behaviour of all layers of a web application (server and client side-scripting).
 
 However pyccuracy still have not implemented actions that can be classified as accessible for disabled users like "tabbing navigation", focus possibility for interactive elements, landmarks and header navigation, among other actions.
 
@@ -13,7 +13,7 @@ Howto use
 
 Goal
 ====
-The goal of implementing accessibility actions for pyccuracy is to be able to execute acceptance tests of web applications functionality, considering disabled users task completion with assistive technologies. These users do no rely on the same visual and interactive mechanisms such as mouse and link colors, for example. So pyccuracy actions must consider these characteristics to guarantee that the functionality of the web application is available for all users. 
+The goal of implementing accessibility actions for pyccuracy is to be able to execute acceptance tests of web applications functionality, considering disabled users task completion with assistive technologies. These users do no rely on the same visual and interactive mechanisms such as mouse and link colors, for example. So pyccuracy actions must consider these characteristics to guarantee that the functionality of the web application is available for all users.
 
 From the development perspective, accessibility actions drive automatic accessibility evaluation tools into a Continuous Integration environment. Making it possible to include accessibility non-functional requirements into the development life-cycle of projects and assisting developers while coding solutions for them.
 
@@ -37,11 +37,11 @@ check it out as a ASCII model :)
 _____________         _____________           __________________    |
 |           |         |           |           |                |    |
 | Selenium  | <------ |  Python   | <-------- |   JavaScript   |    |
-|  server   |         | Pyccuracy |           |     event      |    |      
+|  server   |         | Pyccuracy |           |     event      |    |
 |           |         |  actions  |           | implementation |    |
 |___________|         |___________|           |________________|    |        _______________
-                            |                          |            |        |             | 
-                            |                          |            | -----> |  Pyccuracy  | 
+                            |                          |            |        |             |
+                            |                          |            | -----> |  Pyccuracy  |
                       _____________              _______________    |        |    Tests    |
                       |           |              |             |    |        |  Scenarios  |
                       |  Python   |              |  JavaScript |    |        | (Acceptance)|
@@ -50,7 +50,7 @@ _____________         _____________           __________________    |
                       |___________|              |_____________|    |
                                                                     |
 --------------------------------------------------------------------|
-                                                                    
+
 Contact
 =======
 If you find these information useful or would like to contribute to this project, feel free to send me a message: talk@watinha.com.
@@ -60,9 +60,9 @@ WORK LOG
 
 - work a javascript log to debug application
 
-- implement remaining actions for the first established scenario 
+- implement remaining actions for the first established scenario
 
-- Fix type action ***
+- Type validation in the action ***
 
 - Implement look for content action
 
