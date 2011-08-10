@@ -11,7 +11,7 @@ class FillFocusedElementActionTest(unittest.TestCase):
         context_mock = Mock()
         js_code_dummy = 'function testing(){console.log(12);};result = testing();'
 
-        context_mock.browser_driver.exec_js.return_value = '//input[2]'
+        context_mock.browser_driver.exec_js.return_value = 'document.getElementsByTagName("input")[2]'
 
         with patch.object(JsCodeLoader, 'load') as load_mock:
             load_mock.return_value = js_code_dummy
@@ -23,7 +23,7 @@ class FillFocusedElementActionTest(unittest.TestCase):
         self.assertTrue(context_mock.browser_driver.exec_js.called)
         context_mock.browser_driver.exec_js.assert_called_with(js_code_dummy)
         self.assertTrue(context_mock.browser_driver.type_text.called)
-        context_mock.browser_driver.type_text.assert_called_with('//input[2]', 'watinha')
+        context_mock.browser_driver.type_text.assert_called_with('document.getElementsByTagName("input")[2]', 'watinha')
 
 class PressEnterActionTest(unittest.TestCase):
 

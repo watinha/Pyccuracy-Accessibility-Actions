@@ -9,8 +9,8 @@ class FillFocusedElementAction(ActionBase):
     def execute(self, context, text):
         js_loader = JsCodeLoader()
         js_code = js_loader.load('get_active_element_xpath.js')
-        active_element_xpath = context.browser_driver.exec_js(js_code)
-        context.browser_driver.type_text(active_element_xpath, text)
+        active_element_dom = context.browser_driver.exec_js(js_code)
+        context.browser_driver.type_text(active_element_dom, text)
 
 
 class PressEnterAction(ActionBase):

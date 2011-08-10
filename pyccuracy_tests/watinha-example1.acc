@@ -9,6 +9,7 @@ Given
 When
     I tab navigate to "Pesquisa Google" element
     And I type "watinha"
+    And I wait for 15 seconds
     And I press enter
     And I tab navigate to "Willian Massami Watanabe - Curriculum" element
     And I press enter

@@ -9,7 +9,7 @@ function get_active_element_xpath(){
 
     for (var cont = 0; cont < nodes.length; cont++)
         if (active_element == nodes[cont])
-            return "//" + (element_type + "[" + cont + "]").toLowerCase();
-    
+            return "document.getElementsByTagName(\"" + (element_type).toLowerCase() + "\")[" + cont + "]";
+
     return this.constants.NOT_FOUND_ELEMENT;
 }
