@@ -1,6 +1,6 @@
 As a user
 I want to be able use google search
-So that I can look for further information about watinha 
+So that I can look for further information about watinha
 
 Scenario 1 - Clicking in the first subsection
 Given
@@ -16,7 +16,7 @@ Then
     I wait for the page to load
     I see "Interactive Curriculum - Willian Massami Watanabe" title
 
-Scenario 2 - Trying out the navigate action
+Scenario 2 - Trying out the tab navigate action
 Given
     I go to "http://watinha.com"
     I wait for the page to load
