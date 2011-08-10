@@ -19,7 +19,7 @@ class FillFocusedElementActionTest(unittest.TestCase):
             fill_action.execute(context_mock, 'watinha')
 
         self.assertTrue(load_mock.called)
-        load_mock.assert_called_with('get_active_element_xpath.js')
+        load_mock.assert_called_with('get_active_element_dom.js')
         self.assertTrue(context_mock.browser_driver.exec_js.called)
         context_mock.browser_driver.exec_js.assert_called_with(js_code_dummy)
         self.assertTrue(context_mock.browser_driver.type_text.called)
@@ -31,7 +31,7 @@ class PressEnterActionTest(unittest.TestCase):
         context_mock = Mock()
         js_code_dummy = 'function test_press_enter(){return 1;}test_press_enter();'
 
-        context_mock.browser_driver.exec_js.return_value = '//button[1]'
+        context_mock.browser_driver.exec_js.return_value = 'document.getElements...[1]'
 
         with patch.object(JsCodeLoader, 'load') as load_mock:
             load_mock.return_value = js_code_dummy
@@ -39,9 +39,9 @@ class PressEnterActionTest(unittest.TestCase):
             enter_action.execute(context_mock, None)
 
         self.assertTrue(load_mock.called)
-        load_mock.assert_called_with('get_active_element_xpath.js')
+        load_mock.assert_called_with('get_active_element_dom.js')
         self.assertTrue(context_mock.browser_driver.exec_js.called)
         context_mock.browser_driver.exec_js.assert_called_with(js_code_dummy)
         self.assertTrue(context_mock.browser_driver.type_keys.called)
-        context_mock.browser_driver.type_keys.assert_called_with('//button[1]', '\13')
+        context_mock.browser_driver.type_keys.assert_called_with('document.getElements...[1]', '\13')
 
