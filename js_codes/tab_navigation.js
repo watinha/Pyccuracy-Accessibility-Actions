@@ -1,38 +1,40 @@
 function tab_navigation(element_text, tab_limit){
+    var tab_nav = new TabNavigation();
+    var focusable_nodes = tab_nav.get_focusable();
+    var current_index = tab_nav.get_active_index();
+    return tab_nav.search_for_focusable(element_text, tab_limit);
+}
+function TabNavigation() {
     this.constants = {
         ELEMENT_NOT_FOUND: 'element not found',
         TAB_LIMIT: 30,
         TAB_LIMIT_EXCEEDED: 'exceed max number of tab keys pressed'
     };
-
-    if( ! tab_limit)
-        tab_limit = this.constants.TAB_LIMIT;
-    else
-        tab_limit = parseInt(tab_limit);
-    /*
-     * Function to look into parent nodes styles to
-     *  identify whether elements are visible or not
-     */
-    function is_visible(node) {
-        var computed_style = current_window.getComputedStyle(node);
-        if ( ! computed_style){
-            return true;
-        }
-        if (computed_style.getPropertyValue("visibility") == "hidden")
-            return false;
-        if (computed_style.getPropertyValue("display") == "none")
-            return false;
-        return is_visible(node.parentNode);
+}
+/*
+ * Function to look into parent nodes styles to
+ *  identify whether elements are visible or not
+ */
+TabNavigation.prototype.is_visible = function (node) {
+    var computed_style = current_window.getComputedStyle(node);
+    if ( ! computed_style){
+        return true;
     }
-
+    if (computed_style.getPropertyValue("visibility") == "hidden")
+        return false;
+    if (computed_style.getPropertyValue("display") == "none")
+        return false;
+    return this.is_visible(node.parentNode);
+}
+/*
+ * retrieving focusable elements
+ */
+TabNavigation.prototype.get_focusable = function () {
     var nodes = current_document.getElementsByTagName("*"),
         focusable_nodes = [];
 
-    /*
-     * retrieving focusable elements
-     */
     for (var cont = 0; cont < nodes.length; cont++) {
-        if (nodes[cont].tabIndex >= 0 && is_visible(nodes[cont]) && (nodes[cont].tagName != "A" || nodes[cont].href)){
+        if (nodes[cont].tabIndex >= 0 && this.is_visible(nodes[cont]) && (nodes[cont].tagName != "A" || nodes[cont].href)){
             /*
              * ordering accordingly to tabindex (NO OPTIMIZATION IMPLEMENTED SIMPLE INSERTION SORT)
              */
@@ -42,19 +44,37 @@ function tab_navigation(element_text, tab_limit){
             focusable_nodes.splice(cont_focusable, 0, nodes[cont]);
         }
     }
-
-    /*
-     * get the current activeElement in DOM
-     */
-    var current_index = 0;
-    for (var cont in focusable_nodes)
-        if (current_document.activeElement == focusable_nodes[cont])
+    this.focusable_nodes = focusable_nodes;
+    return focusable_nodes;
+}
+/*
+ * get the current activeElement in DOM
+ */
+TabNavigation.prototype.get_active_index = function () {
+    var current_index = 0,
+        focusable_nodes = this.focusable_nodes;
+    for (var cont in focusable_nodes) {
+        if (current_document.activeElement == focusable_nodes[cont]) {
             current_index = cont;
+            break;
+        }
+    }
+    this.current_index = current_index;
+    return current_index;
+}
+/*
+ * Setting focus for focusable_nodes in order looking for element_text within it
+ */
+TabNavigation.prototype.search_for_focusable = function (element_text, tab_limit) {
+    if( ! tab_limit)
+        tab_limit = this.constants.TAB_LIMIT;
+    else
+        tab_limit = parseInt(tab_limit);
 
-    /*
-     * Setting focus for focusable_nodes in order looking for element_text within it
-     */
-    var cont;
+    var cont,
+        current_index = this.current_index,
+        focusable_nodes = this.focusable_nodes;
+
     for (cont = (current_index); cont < focusable_nodes.length && (cont - current_index) <= tab_limit; cont++){
         focusable_nodes[cont].focus();
         if (focusable_nodes[cont].innerHTML.search(element_text) >= 0)
