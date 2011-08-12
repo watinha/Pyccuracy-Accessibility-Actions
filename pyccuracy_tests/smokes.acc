@@ -1,4 +1,4 @@
-As a user
+As an assistive technology user
 I want to be able use google search
 So that I can look for further information about watinha
 
@@ -10,21 +10,10 @@ When
     I tab navigate to "Pesquisa Google" element
     And I type "watinha"
     And I press enter
+    And I wait for 15 seconds
     And I tab navigate to "Willian Massami Watanabe - Curriculum" element
     And I press enter
 Then
     I wait for the page to load
     I see "Interactive Curriculum - Willian Massami Watanabe" title
 
-Scenario 2 - Trying out the tab navigate action
-Given
-    I go to "http://watinha.com"
-    I wait for the page to load
-    I wait for 5 seconds
-When
-    I tab navigate to "talk" element with 2 key presses
-    I tab navigate to "Twitter" element with 1 key presses
-    I tab navigate to "watinha.com" element with 1 key presses
-    I tab navigate to "Willian" element with 1 key presses
-Then
-    I see "Interactive Curriculum - Willian Massami Watanabe" title
