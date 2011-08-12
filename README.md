@@ -64,6 +64,8 @@ WORK LOG
 
 - Type validation in the action ***
 
+- Fix tab navigation too open issue ***
+
 - Implement look for content action
 
 - ignore non-textual elements
