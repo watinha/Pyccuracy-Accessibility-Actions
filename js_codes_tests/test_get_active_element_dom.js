@@ -8,7 +8,8 @@ document.addEventListener("load", function(e){
         document.getElementById("link1").focus();
         var action = new GetActiveNode();
         var result = action.execute();
-        equal(result, "document.getElementsByTagName(\"a\")[1]");
+        ok(result == "document.getElementsByTagName(\"a\")[1]" ||
+           result == "document.getElementsByTagName(\"a\")[17]");
 
         document.getElementsByTagName("h1")[1].focus();
         var result = action.execute();

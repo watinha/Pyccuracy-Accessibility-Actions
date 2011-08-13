@@ -60,11 +60,13 @@ WORK LOG
 
 - work a javascript log to debug application
 
-- implement remaining actions for the first established scenario
+- Type validation in the action
 
-- Type validation in the action ***
+- Fix tab navigation too open issue
+    - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
+    - Should see inputs value during the search
 
-- Fix tab navigation too open issue ***
+- Fix press enter action to follow forms
 
 - Implement look for content action
 

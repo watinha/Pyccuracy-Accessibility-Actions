@@ -79,13 +79,14 @@ TabNavigation.prototype.search_for_focusable = function (element_text, tab_limit
         current_index = this.current_index,
         focusable_nodes = this.focusable_nodes;
 
-    for (cont = (current_index); cont < focusable_nodes.length && (cont - current_index) <= tab_limit; cont++){
-        focusable_nodes[cont].focus();
-        if (focusable_nodes[cont].innerHTML.search(element_text) >= 0)
+    for (cont = (current_index); (cont - current_index) < focusable_nodes.length && (cont - current_index) <= tab_limit; cont++){
+        var current_node = cont % focusable_nodes.length;
+        focusable_nodes[current_node].focus();
+        if (focusable_nodes[current_node].innerHTML.search(element_text) >= 0)
             return element_text;
-        if(focusable_nodes[cont].title && focusable_nodes[cont].title.search(element_text) >= 0)
+        if(focusable_nodes[current_node].title && focusable_nodes[current_node].title.search(element_text) >= 0)
             return element_text;
-        if(focusable_nodes[cont].name && focusable_nodes[cont].name.search(element_text) >= 0)
+        if(focusable_nodes[current_node].name && focusable_nodes[current_node].name.search(element_text) >= 0)
             return element_text;
     }
     if((cont - current_index) == (tab_limit + 1))
