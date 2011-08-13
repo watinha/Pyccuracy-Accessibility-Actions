@@ -10,7 +10,12 @@ class FillFocusedElementAction(ActionBase):
         js_loader = JsCodeLoader()
         js_code = js_loader.load('get_active_element_dom.js')
         active_element_dom = context.browser_driver.exec_js(js_code)
+
         context.browser_driver.type_text(active_element_dom, text)
+
+        js_code_2 = js_loader.load('verify_active_element_value.js')
+        active_element_value = context.browser_driver.exec_js(js_code_2)
+
 
 
 class PressEnterAction(ActionBase):
