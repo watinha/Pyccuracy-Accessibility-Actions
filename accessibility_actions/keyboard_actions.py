@@ -8,14 +8,10 @@ class FillFocusedElementAction(ActionBase):
 
     def execute(self, context, text):
         js_loader = JsCodeLoader()
-        js_code = js_loader.load('get_active_element_dom.js')
-        active_element_dom = context.browser_driver.exec_js(js_code)
 
+        active_element_dom = js_loader.exec_js(context, 'get_active_element_dom.js')
         context.browser_driver.type_text(active_element_dom, text)
-
-        js_code_2 = js_loader.load('verify_active_element_value.js')
-        active_element_value = context.browser_driver.exec_js(js_code_2)
-
+        #active_element_value = js_loader.exec_js(context, 'verify_active_element_value.js')
 
 
 class PressEnterAction(ActionBase):
@@ -24,6 +20,6 @@ class PressEnterAction(ActionBase):
 
     def execute(self, context, extra_argument):
         js_loader = JsCodeLoader()
-        js_code = js_loader.load('get_active_element_dom.js')
-        active_element_dom = context.browser_driver.exec_js(js_code)
+
+        active_element_dom = js_loader.exec_js(context, 'get_active_element_dom.js')
         context.browser_driver.type_keys(active_element_dom, '\13')

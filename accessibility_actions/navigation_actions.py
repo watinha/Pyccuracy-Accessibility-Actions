@@ -11,11 +11,10 @@ class TabNavigationAction(ActionBase):
     def execute(self, context, element_type, element_text, tab_number):
         js_loader = JsCodeLoader()
         if (tab_number):
-            js_code = js_loader.load('tab_navigation.js', element_text, tab_number)
+            result = js_loader.exec_js(context, 'tab_navigation.js', element_text, tab_number)
         else:
-            js_code = js_loader.load('tab_navigation.js', element_text, self.MAX_NUMBER_OF_TAB_KEYS)
+            result = js_loader.exec_js(context, 'tab_navigation.js', element_text, self.MAX_NUMBER_OF_TAB_KEYS)
 
-        result = context.browser_driver.exec_js(js_code)
         if (result == self.NOT_FOUND_ELEMENT):
             raise self.failed('"' + element_text + '" does not exists or is not focusable...')
         if (result == self.MAX_TAB_PRESSES_EXCEEDED):

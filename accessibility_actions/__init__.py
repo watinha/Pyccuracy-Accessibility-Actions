@@ -1,12 +1,11 @@
 import re
 
-
 class JsCodeLoader:
 
     JS_DIR = 'js_codes/'
     FUNCTION_REGEXP = "(function)\s+((.)+)\s*\((.)*\)\s*\{"
 
-    def load(self, js_filename, *args):
+    def _load(self, js_filename, args):
         js_file = open(self.JS_DIR + js_filename, 'r')
         js_code = js_file.read()
 
@@ -22,3 +21,7 @@ class JsCodeLoader:
         # getting the DOM document element reference from within selenium
         js_header = "current_document = this.browserbot.getCurrentWindow().document; current_window = this.browserbot.getCurrentWindow();"
         return js_header + "\n" + js_code + "\n" + js_constructor_line + "\n" + js_result_line
+
+    def exec_js(self, context, js_filename, *args):
+        js_code = self._load(js_filename, args)
+        return context.browser_driver.exec_js(js_code)

@@ -27,7 +27,7 @@ result = action.execute("argument1");"""
         mocked_open.return_value = mocked_file
         with patch.dict(__builtins__, {'open': mocked_open}):
             js_loader = JsCodeLoader()
-            result = js_loader.load(js_file_dummy, 'argument1')
+            result = js_loader._load(js_file_dummy, ['argument1'])
 
             mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
@@ -56,7 +56,7 @@ result = action.execute("argument1","argument2","argument3");"""
         mocked_open.return_value = mocked_file
         with patch.dict(__builtins__, {'open': mocked_open}):
             js_loader = JsCodeLoader()
-            result = js_loader.load(js_file_dummy, 'argument1', 'argument2', 'argument3')
+            result = js_loader._load(js_file_dummy, ['argument1', 'argument2', 'argument3'])
 
             mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
@@ -86,9 +86,24 @@ result = action.execute();"""
         mocked_open.return_value = mocked_file
         with patch.dict(__builtins__, {'open': mocked_open}):
             js_loader = JsCodeLoader()
-            result = js_loader.load(js_file_dummy)
+            result = js_loader._load(js_file_dummy, [])
 
             mocked_open.assert_called_with('js_codes/' + js_file_dummy, 'r')
             self.assertTrue(mocked_file.read.called)
 
         self.assertEquals(expected_js_code_dummy, result)
+
+    def test_exec_js_should_call_js_loader_and_browser_driver_exec_js(self):
+        context_mock = Mock()
+        context_mock.browser_driver.exec_js.return_value = 'document.getEle...'
+        js_file_stub = 'some_js_file.js'
+
+        jsloader = JsCodeLoader()
+        jsloader._load = Mock()
+        jsloader._load.return_value = 'function(){console.log();...'
+        result = jsloader.exec_js(context_mock, js_file_stub)
+
+        jsloader._load.assert_called_with('some_js_file.js', ())
+        context_mock.browser_driver.exec_js.assert_called_with('function(){console.log();...')
+
+        self.assertEquals('document.getEle...', result)
