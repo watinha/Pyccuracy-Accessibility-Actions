@@ -1,8 +1,9 @@
-function get_active_element_xpath(){
+function GetActiveNode(){
     this.constants = {
         NOT_FOUND_ELEMENT: "active element not found"
     };
-
+}
+GetActiveNode.prototype.execute = function () {
     var active_element = current_document.activeElement,
         element_type = active_element.tagName,
         nodes = current_document.getElementsByTagName(element_type);

@@ -5,64 +5,71 @@ document.addEventListener("load", function(e){
     module("tab_navigation");
 
     test("tab_navigation should return the text inside the element it reaches and set the activeElement", function(){
-        var result = tab_navigation("first button");
+        var action = new TabNavigation();
+        var result = action.execute("first button");
         equal(result, "first button");
         var button_element = document.getElementsByTagName("button")[0];
         equal(document.activeElement, button_element);
     });
 
     test("tab_navigation should return the text inside the element it reaches and set the activeElement for title and name", function(){
-        var result = tab_navigation("textinput");
+        var action = new TabNavigation();
+        var result = action.execute("textinput");
         equal(result, "textinput");
         equal(document.activeElement.name, "textinput");
 
-        result = tab_navigation("textinput2");
+        result = action.execute("textinput2");
         equal(result, "textinput2");
         equal(document.activeElement.title, "textinput2");
     });
 
     test("tab_navigation should return 'element not found' when the element been looked for is not focusable", function(){
-        var result = tab_navigation("Fourth header");
+        var action = new TabNavigation();
+        var result = action.execute("Fourth header");
         equal(result, "element not found");
     });
 
     test("tab_navigation should return 'exceed max number of tab keys pressed'", function(){
         document.getElementsByTagName("h1")[1].focus();
-        var result = tab_navigation("interactive span", 5);
+        var action = new TabNavigation();
+        var result = action.execute("interactive span", 5);
         equal(result, "exceed max number of tab keys pressed");
     });
 
     test("tab_navigation should ignore links with no href attribute", function(){
         document.getElementsByTagName("h1")[1].focus();
-        var result = tab_navigation("non-link");
+        var action = new TabNavigation();
+        var result = action.execute("non-link");
         equals(result, "element not found");
     });
 
     test("tab_navigation should ignore display:none and visibility:hidden elements", function() {
         document.getElementsByTagName("h1")[1].focus();
-        var result = tab_navigation("invisible link1");
+        var action = new TabNavigation();
+        var result = action.execute("invisible link1");
         equal(result, "element not found");
 
-        result = tab_navigation("invisible link2");
+        result = action.execute("invisible link2");
         equal(result, "element not found");
 
-        result = tab_navigation("invisible link3");
+        result = action.execute("invisible link3");
         equal(result, "element not found");
     });
 
     test("tab_navigation should get sequential elements with different number of tab limits", function(){
         document.getElementsByTagName("h1")[1].focus();
-        var result = tab_navigation("First header");
+        var action = new TabNavigation();
+        var result = action.execute("First header");
         equal(result, "First header");
         var searched_element = document.getElementsByTagName("h1")[1];
         equal(document.activeElement, searched_element);
 
-        result = tab_navigation("link 1", 2);
+        result = action.execute("link 1", 2);
         equal(result, "link 1");
         searched_element = document.getElementById("link1");
         equal(document.activeElement, searched_element);
 
-        result = tab_navigation("link 5", 5);
+        result = action.execute("link 5", 5);
         equal(result, "link 5");
         equal(document.activeElement.innerHTML, "link 5");
     });

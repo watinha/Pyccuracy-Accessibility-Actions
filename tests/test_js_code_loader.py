@@ -16,9 +16,10 @@ class JsCodeLoaderTest(unittest.TestCase):
         function tab_navigation(text){
             console.log('unit_testing:' + text);
         }
-result = tab_navigation("argument1");"""
+action = new tab_navigation();
+result = action.execute("argument1");"""
         js_file_dummy = 'js_test.js'
-        
+
         mocked_file = Mock()
         mocked_file.read.return_value = js_code_dummy
 
@@ -44,9 +45,10 @@ result = tab_navigation("argument1");"""
         function keyboard_action(text){
             console.log('other cool test');
         }
-result = keyboard_action("argument1","argument2","argument3");"""
+action = new keyboard_action();
+result = action.execute("argument1","argument2","argument3");"""
         js_file_dummy = 'js_test.js'
-        
+
         mocked_file = Mock()
         mocked_file.read.return_value = js_code_dummy
 
@@ -73,9 +75,10 @@ result = keyboard_action("argument1","argument2","argument3");"""
         function other_cool_function(){
             console.log('other cool test');
         }
-result = other_cool_function();"""
+action = new other_cool_function();
+result = action.execute();"""
         js_file_dummy = 'js_test.js'
-        
+
         mocked_file = Mock()
         mocked_file.read.return_value = js_code_dummy
 

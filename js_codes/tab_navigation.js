@@ -1,15 +1,15 @@
-function tab_navigation(element_text, tab_limit){
-    var tab_nav = new TabNavigation();
-    var focusable_nodes = tab_nav.get_focusable();
-    var current_index = tab_nav.get_active_index();
-    return tab_nav.search_for_focusable(element_text, tab_limit);
-}
 function TabNavigation() {
     this.constants = {
         ELEMENT_NOT_FOUND: 'element not found',
         TAB_LIMIT: 30,
         TAB_LIMIT_EXCEEDED: 'exceed max number of tab keys pressed'
     };
+}
+TabNavigation.prototype.execute = function(element_text, tab_limit) {
+    var tab_nav = new TabNavigation();
+    var focusable_nodes = tab_nav.get_focusable();
+    var current_index = tab_nav.get_active_index();
+    return tab_nav.search_for_focusable(element_text, tab_limit);
 }
 /*
  * Function to look into parent nodes styles to
@@ -34,7 +34,11 @@ TabNavigation.prototype.get_focusable = function () {
         focusable_nodes = [];
 
     for (var cont = 0; cont < nodes.length; cont++) {
-        if (nodes[cont].tabIndex >= 0 && this.is_visible(nodes[cont]) && (nodes[cont].tagName != "A" || nodes[cont].href)){
+        if (
+            nodes[cont].tabIndex >= 0 &&
+            this.is_visible(nodes[cont]) &&
+            (nodes[cont].tagName != "A" || nodes[cont].href)
+        ){
             /*
              * ordering accordingly to tabindex (NO OPTIMIZATION IMPLEMENTED SIMPLE INSERTION SORT)
              */
