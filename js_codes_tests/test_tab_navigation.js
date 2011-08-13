@@ -81,4 +81,12 @@ document.addEventListener("load", function(e){
         var result = action.execute("link 1");
         equal(result, "link 1");
     });
+
+    test("tab_navigation should look for values in input elements", function () {
+        var first_input = document.querySelectorAll("form > input")[0];
+        first_input.focus();
+        var action = new TabNavigation();
+        var result = action.execute("Continue");
+        equal(result, "Continue");
+    });
 }, true);

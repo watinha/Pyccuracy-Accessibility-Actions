@@ -88,6 +88,8 @@ TabNavigation.prototype.search_for_focusable = function (element_text, tab_limit
             return element_text;
         if(focusable_nodes[current_node].name && focusable_nodes[current_node].name.search(element_text) >= 0)
             return element_text;
+        if(focusable_nodes[current_node].value && focusable_nodes[current_node].value.search(element_text) >= 0)
+            return element_text;
     }
     if((cont - current_index) == (tab_limit + 1))
         return this.constants.TAB_LIMIT_EXCEEDED;

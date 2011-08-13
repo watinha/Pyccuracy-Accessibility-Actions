@@ -4,12 +4,15 @@ document.addEventListener("load", function(e){
 
     module("get_active_element_dom");
 
-    test("test get xpath should generate xpath for elements", function(){
+    test("test get dom should generate dom for elements", function(){
         document.getElementById("link1").focus();
         var action = new GetActiveNode();
         var result = action.execute();
+        /*
+         * DOM order is not granted in Javascript
+         */
         ok(result == "document.getElementsByTagName(\"a\")[1]" ||
-           result == "document.getElementsByTagName(\"a\")[17]");
+           result == "document.getElementsByTagName(\"a\")[19]");
 
         document.getElementsByTagName("h1")[1].focus();
         var result = action.execute();
