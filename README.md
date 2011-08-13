@@ -55,19 +55,3 @@ Contact
 =======
 If you find these information useful or would like to contribute to this project, feel free to send me a message: talk@watinha.com.
 
-WORK LOG
-========
-
-- work a javascript log to debug application
-
-- Type validation in the action
-
-- Fix tab navigation too open issue
-    - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
-    - Should see inputs value during the search
-
-- Fix press enter action to follow forms
-
-- Implement look for content action
-
-- ignore non-textual elements

@@ -2,7 +2,7 @@ document.addEventListener("load", function(e){
     current_document = document;
     current_window = window;
 
-    module("get_active_element_xpath");
+    module("get_active_element_dom");
 
     test("test get xpath should generate xpath for elements", function(){
         document.getElementById("link1").focus();
