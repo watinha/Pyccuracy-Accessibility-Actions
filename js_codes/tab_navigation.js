@@ -15,7 +15,9 @@ TabNavigation.prototype.execute = function(element_text, tab_limit) {
  *  identify whether elements are visible or not
  */
 TabNavigation.prototype.is_visible = function (node) {
-    var computed_style = current_window.getComputedStyle(node);
+    if (node.tagName == "HTML")
+        return true;
+    var computed_style = current_window.getComputedStyle(node, null);
     if ( ! computed_style){
         return true;
     }
