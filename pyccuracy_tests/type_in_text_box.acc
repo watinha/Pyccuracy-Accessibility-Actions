@@ -12,15 +12,3 @@ When
     And I wait for 3 seconds
 Then
     I see that current page contains "<b>walmart</b>"
-
-Scenario 2 - Failing scenario
-Given
-    I go to "http://www.google.com"
-    And I wait for the page to load
-    And I wait for 3 seconds
-When
-    I tab navigate to "Estou com sorte" element
-    And I type "wall"
-Then
-    I see that current page contains "<b>walmart</b>"
-

@@ -1,4 +1,6 @@
-document.addEventListener("load", function(e){
+function TabNavigationTest() {
+};
+TabNavigationTest.prototype.run_test = function() {
     current_document = document;
     current_window = window;
 
@@ -89,4 +91,4 @@ document.addEventListener("load", function(e){
         var result = action.execute("Continue");
         equal(result, "Continue");
     });
-}, true);
+};

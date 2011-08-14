@@ -3,7 +3,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8"></meta>
         <title>Unit tests for js codes file</title>
         <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" charset="utf-8" />
-        <script type="text/javascript" charset="utf-8" src="qunit.js"></script>
+        <script type="text/javascript" charset="utf-8" src="qunit2.js"></script>
         <!----------------------------------------------------
             Source codes should be inserted here
         ----------------------------------------------------->
@@ -15,7 +15,7 @@
         ----------------------------------------------------->
         <script type="text/javascript" charset="utf-8" src="test_tab_navigation.js"></script>
         <script type="text/javascript" charset="utf-8" src="test_get_active_element_dom.js"></script>
-        <script type="text/javascript" charset="utf-8" src="text_verify_active_element_value.js"></script>
+        <script type="text/javascript" charset="utf-8" src="test_verify_active_element_value.js"></script>
     </head>
     <body>
     <h1 id="qunit-header">QUnit example</h1>
@@ -46,5 +46,19 @@
       <span tabindex=0>interactive span</span>
       <div>Some text inside a div</div>
     </div>
+    <script type="text/javascript" charset="utf-8">
+        window.onload = function () {
+            var tests_list = [
+                new TabNavigationTest(),
+                new GetActiveElementDOMTest(),
+                new GetActiveValueTest()
+            ];
+
+            for (var tests_cont = 0; tests_cont < tests_list.length; tests_cont++) {
+                tests_list[tests_cont].run_test();
+            }
+
+        }
+    </script>
     </body>
 </html>
