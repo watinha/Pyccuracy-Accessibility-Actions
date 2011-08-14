@@ -1,0 +1,17 @@
+As an assitive technology user
+I want to be able to activate forms and links with enter key
+So that I can navigate in the Web with keyboard only interactions
+
+Scenario 1 - Clicking with enter keyboard presses
+Given
+    I go to "http://www.google.com.br"
+    And I wait for the page to load
+    And I wait for 3 seconds
+When
+    I tab navigate to "Mapas" element
+    And I press enter
+    And I wait for the page to load
+    And I wait for 5 seconds
+Then
+    I see "Google Maps" title
+

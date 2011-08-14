@@ -23,6 +23,5 @@ class PressEnterAction(ActionBase):
 
     def execute(self, context, extra_argument):
         js_loader = JsCodeLoader()
-
         active_element_dom = js_loader.exec_js(context, 'get_active_element_dom.js')
         context.browser_driver.type_keys(active_element_dom, '\13')
