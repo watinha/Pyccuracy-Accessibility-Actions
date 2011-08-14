@@ -1,15 +1,14 @@
 function TabNavigation() {
     this.constants = {
-        ELEMENT_NOT_FOUND: 'element not found',
+        ELEMENT_NOT_FOUND: "element not found",
         TAB_LIMIT: 30,
-        TAB_LIMIT_EXCEEDED: 'exceed max number of tab keys pressed'
+        TAB_LIMIT_EXCEEDED: "exceed max number of tab keys pressed"
     };
 }
 TabNavigation.prototype.execute = function(element_text, tab_limit) {
-    var tab_nav = new TabNavigation();
-    var focusable_nodes = tab_nav.get_focusable();
-    var current_index = tab_nav.get_active_index();
-    return tab_nav.search_for_focusable(element_text, tab_limit);
+    var focusable_nodes = this.get_focusable();
+    var current_index = this.get_active_index();
+    return this.search_for_focusable(element_text, tab_limit);
 }
 /*
  * Function to look into parent nodes styles to
