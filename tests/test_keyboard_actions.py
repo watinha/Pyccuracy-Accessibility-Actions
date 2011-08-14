@@ -22,10 +22,27 @@ class FillFocusedElementActionTest(unittest.TestCase):
 
         self.assertTrue(context_mock, exec_mock.mock_calls[0][1])
         self.assertTrue('get_active_element_dom.js', exec_mock.mock_calls[0][1])
-        #self.assertTrue(context_mock, exec_mock.mock_calls[1][1])
-        #self.assertTrue('verify_active_element_value.js', exec_mock.mock_calls[1][1])
+        self.assertTrue(context_mock, exec_mock.mock_calls[1][1])
+        self.assertTrue('verify_active_element_value.js', exec_mock.mock_calls[1][1])
 
         context_mock.browser_driver.type_text.assert_called_with('document.getElement...', 'watinha')
+
+    def test_fill_non_input_element_should_throw_failure_exception(self):
+        context_mock = Mock()
+        fill_action = FillFocusedElementAction()
+
+        exec_returns = ['document.getElement...', 'not found']
+        exec_returns.reverse()
+        def exec_return(*args, **args2):
+            return exec_returns.pop()
+
+        with patch.object(JsCodeLoader, 'exec_js') as exec_mock:
+            exec_mock.side_effect = exec_return
+            try:
+                fill_action.execute(context_mock, 'watinha')
+                self.assertTrue(False)
+            except ActionFailedError:
+                self.assertTrue(True)
 
 
 class PressEnterActionTest(unittest.TestCase):

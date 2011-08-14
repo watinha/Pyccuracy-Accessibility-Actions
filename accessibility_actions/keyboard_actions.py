@@ -11,7 +11,10 @@ class FillFocusedElementAction(ActionBase):
 
         active_element_dom = js_loader.exec_js(context, 'get_active_element_dom.js')
         context.browser_driver.type_text(active_element_dom, text)
-        #active_element_value = js_loader.exec_js(context, 'verify_active_element_value.js')
+        active_element_value = js_loader.exec_js(context, 'verify_active_element_value.js')
+
+        if (active_element_value != text):
+            raise self.failed('Focused element does not support keyboard input')
 
 
 class PressEnterAction(ActionBase):
