@@ -6,7 +6,8 @@ WORK LOG
 - Fix tab navigation too open issue
     - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
 
-- Fix press enter action to follow forms
+- Fix press enter action to follow forms ***
+    - only working in firefox for now
 
 - Implement look for content action
 

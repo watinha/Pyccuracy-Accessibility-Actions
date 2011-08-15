@@ -50,13 +50,21 @@ class PressEnterActionTest(unittest.TestCase):
     def test_press_enter_should_call_exec_js_and_load_from_js_loader(self):
         context_mock = Mock()
 
+        exec_returns = ['document.getElements...[1]', 'link activated']
+        exec_returns.reverse()
+        def exec_return(*args, **args2):
+            return exec_returns.pop()
         with patch.object(JsCodeLoader, 'exec_js') as exec_js_mock:
-            exec_js_mock.return_value = 'document.getElements...[1]'
+            exec_js_mock.side_effect = exec_return
             enter_action = PressEnterAction()
             enter_action.execute(context_mock, None)
 
-        self.assertTrue(exec_js_mock.called)
-        exec_js_mock.assert_called_with(context_mock, 'get_active_element_dom.js')
+        self.assertEquals(2, exec_js_mock.call_count)
+        self.assertTrue(context_mock in exec_js_mock.mock_calls[0][1])
+        self.assertTrue('get_active_element_dom.js' in exec_js_mock.mock_calls[0][1])
+
         self.assertTrue(context_mock.browser_driver.type_keys.called)
         context_mock.browser_driver.type_keys.assert_called_with('document.getElements...[1]', '\13')
+
+        exec_js_mock.assert_called_with(context_mock, 'activate_elements.js')
 
