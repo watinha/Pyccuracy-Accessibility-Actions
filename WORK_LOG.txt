@@ -8,7 +8,6 @@ WORK LOG
 
 - Fix press enter action to follow forms ***
     - only working in firefox for now
-    - still requires forms following implementation
     - button clicking functionality
 
 - Implement look for content action
