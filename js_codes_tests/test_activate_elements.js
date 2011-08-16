@@ -6,12 +6,12 @@ ActivateElementsTest.prototype.run_test = function () {
 
     module("test activate elements");
 
-    test("test execute method should call link activation function", function () {
+    test("test execute method should call click activation function", function () {
         document.querySelectorAll("#link1")[0].focus();
 
         var action = new ActivateElements();
-        action._activate_link = function () {
-            ok(true, "_activate_link method called");
+        action._click_activation = function () {
+            ok(true, "_click_activation method called");
         }
         action.execute();
         expect(1);
@@ -22,6 +22,17 @@ ActivateElementsTest.prototype.run_test = function () {
 
         var action = new ActivateElements();
         action._activate_form = function () {
+            ok(true, "_activate_form method called");
+        }
+        action.execute();
+        expect(1);
+    });
+
+    test("test execute method should call click activate function", function () {
+        document.querySelectorAll("button")[0].focus();
+
+        var action = new ActivateElements();
+        action._click_activation = function () {
             ok(true, "_activate_form method called");
         }
         action.execute();
@@ -46,7 +57,7 @@ ActivateElementsTest.prototype.run_test = function () {
         location_temp = window.location + "";
 
         var action = new ActivateElements();
-        var result = action._activate_link(document.querySelectorAll("#link1")[0]);
+        var result = action._click_activation(document.querySelectorAll("#link1")[0]);
 
         expect(3);
         equal(result, "link activated");
