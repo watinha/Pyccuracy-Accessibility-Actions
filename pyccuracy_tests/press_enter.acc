@@ -15,3 +15,16 @@ When
 Then
     I see "Google Maps" title
 
+Scenario 2 - Submiting a form with enter keyboard presses
+Given
+    I go to "http://www.google.com.br"
+    And I wait for the page to load
+    And I wait for 3 seconds
+When
+    I tab navigate to "Pesquisa Google" element
+    And I type "watinha"
+    And I press enter
+    And I wait for the page to load
+Then
+    And I see "watinha - Pesquisa Google" title
+
