@@ -6,13 +6,34 @@ ActivateElementsTest.prototype.run_test = function () {
 
     module("test activate elements");
 
+    test("test execute method should call link activation function", function () {
+        document.querySelectorAll("#link1")[0].focus();
+
+        var action = new ActivateElements();
+        action._activate_link = function () {
+            ok(true, "_activate_link method called");
+        }
+        action.execute();
+        expect(1);
+    });
+
+    test("test execute method should call form activate function", function () {
+        document.querySelectorAll("form > input")[0].focus();
+
+        var action = new ActivateElements();
+        action._activate_form = function () {
+            ok(true, "_activate_form method called");
+        }
+        action.execute();
+        expect(1);
+    });
+
     test("test link activation should dispatch a click event", function () {
         // setting the click listener
         function click_event(ev) {
             ok(true, "link activated");
         }
         document.querySelectorAll("#link1")[0].addEventListener("click", click_event, true);
-        document.querySelectorAll("#link1")[0].focus();
 
         var location_temp = window.location + "",
             hash_position = location_temp.search("#");
@@ -25,7 +46,7 @@ ActivateElementsTest.prototype.run_test = function () {
         location_temp = window.location + "";
 
         var action = new ActivateElements();
-        var result = action.execute();
+        var result = action._activate_link(document.querySelectorAll("#link1")[0]);
 
         expect(3);
         equal(result, "link activated");
@@ -41,10 +62,9 @@ ActivateElementsTest.prototype.run_test = function () {
             ok(true, "form submitted ok");
         }
         document.querySelectorAll("form > input")[0].value = "watinha";
-        document.querySelectorAll("form > input")[0].focus();
 
         var action = new ActivateElements();
-        var result = action.execute();
+        var result = action._activate_form(document.querySelectorAll("form > input")[0]);
 
         expect(1);
 
