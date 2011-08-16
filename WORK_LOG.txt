@@ -7,7 +7,9 @@ WORK LOG
     - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
 
 - Fix press enter action to follow forms ***
-    - only working in firefox for now
+    - Keyboard event for non link, forms or button elements (only firefox)
+    - aria roles attribute recognition
+    - error reporting in the action
 
 - Implement look for content action
 
