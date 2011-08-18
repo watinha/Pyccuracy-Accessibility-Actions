@@ -9,10 +9,11 @@ import unittest
 import sys
 
 sys.path.append(".")
+sys.path.append("tests/")
 
-from tests.test_navigation_actions import TabNavigationActionTest
-from tests.test_keyboard_actions import FillFocusedElementActionTest, PressEnterActionTest
-from tests.test_js_code_loader import JsCodeLoaderTest
+from actions_tests.test_navigation_actions import TabNavigationActionTest
+from actions_tests.test_keyboard_actions import FillFocusedElementActionTest, PressEnterActionTest
+from actions_tests.test_js_code_loader import JsCodeLoaderTest
 
 if __name__ == "__main__":
     unittest.main()
