@@ -6,6 +6,22 @@ ActivateElements.prototype.constants = {
 ActivateElements.prototype.execute = function () {
     var active_element = current_document.activeElement;
 
+    // Firefox handling for special characters event dispatching
+    var keydown_event = current_document.createEvent("KeyboardEvent"),
+        keypress_event = current_document.createEvent("KeyboardEvent"),
+        keyup_event = current_document.createEvent("KeyboardEvent");
+
+    if (keydown_event.initKeyEvent) {
+        keydown_event.initKeyEvent("keydown", true, false, window, false, false, false, false, 13, 13);
+        keypress_event.initKeyEvent("keypress", true, false, window, false, false, false, false, 13, 13);
+        keyup_event.initKeyEvent("keyup", true, false, window, false, false, false, false, 13, 13);
+
+        active_element.dispatchEvent(keydown_event);
+        active_element.dispatchEvent(keypress_event);
+        active_element.dispatchEvent(keyup_event);
+        return true;
+    }
+
     switch (active_element.tagName) {
         case "A":
             this._click_activation(active_element);

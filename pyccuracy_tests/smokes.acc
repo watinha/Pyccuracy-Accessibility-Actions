@@ -10,7 +10,7 @@ When
     I tab navigate to "Pesquisa Google" element
     And I type "watinha"
     And I press enter
-    And I wait for 15 seconds
+    And I wait for 3 seconds
     And I tab navigate to "Willian Massami Watanabe - Curriculum" element
     And I press enter
 Then

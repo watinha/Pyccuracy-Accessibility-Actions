@@ -11,7 +11,6 @@ When
     I tab navigate to "Mapas" element
     And I press enter
     And I wait for the page to load
-    And I wait for 5 seconds
 Then
     I see "Google Maps" title
 
@@ -24,7 +23,7 @@ When
     I tab navigate to "Pesquisa Google" element
     And I type "watinha"
     And I press enter
-    And I wait for the page to load
+    And I wait for 3 seconds
 Then
     And I see "watinha - Pesquisa Google" title
 

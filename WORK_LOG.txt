@@ -1,16 +1,13 @@
 WORK LOG
 ========
 
-- work a javascript log to debug application
-
 - Fix tab navigation too open issue
     - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
 
-- Fix press enter action to follow forms ***
-    - Keyboard event for non link, forms or button elements (only firefox)
+- Fix press enter action to follow forms *
     - aria roles attribute recognition
     - error reporting in the action
 
-- Implement look for content action
+- Implement look for content action ***
 
 - ignore non-textual elements
