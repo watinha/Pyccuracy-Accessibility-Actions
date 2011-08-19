@@ -1,1 +1,1 @@
-open tests/js_codes_tests/index.html -a safari
+open tests/js_codes_tests/index.html -a firefox
