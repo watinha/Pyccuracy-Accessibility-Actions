@@ -1,3 +1,5 @@
+#! /usr/bin/make
+
 PYTHON=/usr/bin/python
 RM=/bin/rm
 
