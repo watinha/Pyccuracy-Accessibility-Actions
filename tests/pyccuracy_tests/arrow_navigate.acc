@@ -1,0 +1,13 @@
+As an assistive technology user
+I want to be able to use arrow keys to navigate
+So that I can search for information in the DOM of a webpage
+
+Scenario 1 - Trying out to search for information in the webpage
+Given
+    I go to "http://watinha.com"
+    And I wait for the page to load
+    And I wait for 5 seconds
+When
+    I use arrow keys to search for "Willian Massami Watanabe" element
+Then
+    I see that current page contains "References"
