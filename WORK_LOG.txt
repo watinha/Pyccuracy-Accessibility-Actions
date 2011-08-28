@@ -4,6 +4,8 @@ WORK LOG
 - Fix tab navigation too open issue
     - Should consider only links, inputs, buttons, textarea elements (or with its correspondent role attribute)
 
+- Follow labels for input elements in navigation actions
+
 - Fix press enter action to follow forms *
     - aria roles attribute recognition
     - error reporting in the action
