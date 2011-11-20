@@ -1,0 +1,8 @@
+Accordion  --> OK
+Double tab navigation --> NOT NECESSARY --> similar to fly-out menu
+Fly-out menu --> OK
+Icon menu --> OK
+Tree view --> similar to Overlay menu
+Overlay menu --> OK
+pulldown button --> similar to tabbed menu
+Tabbed menu --> OK

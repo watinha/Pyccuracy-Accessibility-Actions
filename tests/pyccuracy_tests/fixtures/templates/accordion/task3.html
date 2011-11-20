@@ -1,0 +1,60 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Accordion - Task 3</title>
+        <!-- accordion menu with links -->
+        <script type="text/javascript">
+            window.onload = function () {
+                var headers = document.querySelectorAll(".accordion");
+                for (var i in headers) {
+                    headers[i].onclick = function () {
+                        var ul = this.querySelectorAll("ul")[0];
+                        if (ul.style.display == "block")
+                            ul.style.display = "none";
+                        else
+                            ul.style.display="block";
+                    };
+                }
+            }
+        </script>
+        <style type="text/css">
+            .accordion ul{
+                display:none
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="heading">Accordion - Task 3</h1>
+        <p tabindex=1>Click in the sports item and then click in the tenis link.</p>
+
+        <div class="accordion">
+            <h2><a href="#">News</a></h2>
+            <ul>
+                <li><a href="#">National</a></li>
+                <li><a href="#">International</a></li>
+            </ul>
+        </div>
+        <div class="accordion">
+            <h2><a href="#">Sports</a></h2>
+            <ul>
+                <li><a href="#">Soccer</a></li>
+                <li><a href="#">Footbal</a></li>
+                <li><a href="#">Voley</a></li>
+                <li><a href="http://en.wikipedia.org/wiki/Tennis">Tenis</a></li>
+                <li><a href="#">Basketbal</a></li>
+            </ul>
+        </div>
+        <div class="accordion">
+            <h2><a href="#">Entertainment</a></h2>
+            <ul>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Books</a></li>
+            </ul>
+        </div>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

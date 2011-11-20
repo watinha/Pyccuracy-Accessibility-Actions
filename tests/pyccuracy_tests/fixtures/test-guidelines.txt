@@ -1,0 +1,21 @@
+guideline 1.1
+    - captchas for images urls: http://www.uel.br/eventos/20anoscomputacao/cake
+
+guideline 1.3
+    - info and relationships (label for input forms)
+    - also testing wether the form is submited on enter keypress
+
+#guideline 1.4 (not used since it is not evaluated)
+#    - convey information using color hints
+
+guideline 2.1.1 and 2.1.3
+    - testing keyboard accessibility for forms and clickable elements
+
+guideline 2.1.2
+    - keyboard trap
+
+guideline 3.2.1
+    - on focus initiates a change of context
+
+guideline 3.2.2
+    - on input initiates a change of context

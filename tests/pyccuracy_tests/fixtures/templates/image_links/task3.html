@@ -1,0 +1,41 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Image links - Task 3</title>
+        <script type="text/javascript" charset="utf-8">
+            window.onload = function () {
+                var lis = document.querySelectorAll("ul > li"),
+                    lis_href = [
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Dot',
+                        'http://en.wikipedia.org/wiki/Cat'
+                    ];
+                for (var i in lis) {
+                    lis[i].onclick = function () {
+                        window.location = lis_href[i];
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Image links - Task 3</h1>
+        <p tabindex=1>Find and click the dog link showed next:</p>
+        <ul>
+            <li><img src="../static/images/task1/image1.jpg" /></li>
+            <li><img src="../static/images/task1/image2.jpg" /></li>
+            <li><img src="../static/images/task1/image3.jpg" /></li>
+            <li><img src="../static/images/task1/image4.jpg" /></li>
+            <li><img src="../static/images/task1/image5.jpg" /></li>
+            <li><img src="../static/images/task1/image6.jpg" /></li>
+        </ul>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>
+

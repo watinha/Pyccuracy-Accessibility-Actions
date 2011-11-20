@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Forms - Task 4</title>
+        <!-- correctly labelled form but without form element -->
+        <script type="text/javascript">
+            window.onload = function () {
+                var activate_form = function () {
+                    var first_name = document.getElementById("first_name").value,
+                        last_name = document.getElementById("last_name").value,
+                        cellphone = document.getElementById("cellphone").value,
+                        home_address = document.getElementById("home_address").value;
+
+                    window.location = "form_submit.html?" +
+                                      "first_name=" + first_name + "&" +
+                                      "last_name=" + last_name + "&" +
+                                      "cellphone=" + cellphone + "&" +
+                                      "home_address=" + home_address;
+                    }, submit_button = document.getElementById("submit");
+                submit_button.onclick = activate_form;
+                submit_button.onkeypress = function (ev) {
+                    if (ev.keyCode == 13)
+                        activate_form();
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Forms - Task 4</h1>
+        <p tabindex=1>Fill and submit the following form with the requested information</p>
+        <p>
+            <label for="first_name">First Name</label> : <input type="text" id="first_name" name="first_name" value="" />
+        </p>
+        <p>
+            <label for="last_name">Last Name</label> : <input type="text" id="last_name" name="last_name" value="" />
+        </p>
+        <p>
+            <label for="cellphone">Celphone</label> : <input type="text" id="cellphone" name="cellphone" value="" />
+        </p>
+        <p>
+            <label for="home_address">Home address</label> : <input type="text" id="home_address" name="home_address" value="" />
+        </p>
+
+        <span id="submit" tabindex=0>Submit the form</span>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

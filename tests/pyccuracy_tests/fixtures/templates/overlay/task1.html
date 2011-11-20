@@ -1,0 +1,81 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Overlay menu - Task 1</title>
+        <!-- Overlay menu -->
+        <style type="text/css">
+        ul.dropdown{
+            margin-bottom: 300px;
+        }
+        ul.dropdown > li {
+            width: 200px;
+            margin: 10px;
+            display: block;
+            float: left;
+            background-color: #EEEEEE;
+            padding: 10px;
+        }
+
+        ul.dropdown > li > ul > li {
+            padding: 5px;
+        }
+
+        ul.dropdown li ul{
+            display:none
+        }
+        </style>
+        <script type="text/javascript">
+        window.onload = function () {
+            var li = document.querySelectorAll(".dropdown > li");
+            for (var i in li) {
+                if (li[i]) {
+                    li[i].onclick = function () {
+                        var ul = this.querySelectorAll("ul")[0];
+                        if ( ! ul.style.display || ul.style.display == "none") {
+                            var all_items = document.querySelectorAll("ul.dropdown > li > ul");
+                            for (var j in all_items) {
+                                if (all_items[j].style)
+                                    all_items[j].style.display = "none";
+                            }
+                            ul.style.display = "block";
+                        } else {
+                            ul.style.display = "none";
+                        }
+                    };
+                }
+            }
+        }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Overlay menu - Task 1</h1>
+        <p tabindex=1>Select the Europe item and then select the Spain link</p>
+
+        <ul class="dropdown">
+            <li>Asia
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/China">China</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/India">India</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Japan">Japan</a></li>
+                </ul>
+            </li>
+            <li>Europe
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Portugal">Portugal</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Spain">Spain</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/France">France</a></li>
+                </ul>
+            </li>
+            <li>North America
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/US">US</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Canada">Canada</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

@@ -1,0 +1,55 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Image links - Task 5</title>
+        <script type="text/javascript" charset="utf-8">
+            window.onload = function () {
+                var lis = document.querySelectorAll("ul > li"),
+                    lis_href = [
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Cat',
+                        'http://en.wikipedia.org/wiki/Dog',
+                        'http://en.wikipedia.org/wiki/Cat'
+                    ];
+                for (var i in lis) {
+                    var activate = (function () {
+                        var this_index = i,
+                            activate_link =  function () {
+                                window.location = lis_href[this_index];
+                            };
+
+                        return {
+                            click: function () {
+                                activate_link();
+                            },
+                            keyup: function (ev) {
+                                if (ev.keyCode == 13)
+                                    activate_link();
+                            }
+                        };
+                    })();
+                    lis[i].onclick = activate.click;
+                    lis[i].onkeyup = activate.keyup;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Image links - Task 5</h1>
+        <p tabindex=1>Find and click the dog link showed next:</p>
+        <ul>
+            <li tabindex=0><img src="../static/images/task1/image1.jpg" /></li>
+            <li tabindex=0><img src="../static/images/task1/image2.jpg" /></li>
+            <li tabindex=0><img src="../static/images/task1/image3.jpg" /></li>
+            <li tabindex=0><img src="../static/images/task1/image4.jpg" /></li>
+            <li tabindex=0><img src="../static/images/task1/image5.jpg" /></li>
+            <li tabindex=0><img src="../static/images/task1/image6.jpg" /></li>
+        </ul>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

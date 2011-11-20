@@ -1,0 +1,63 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Accordion - Task 4</title>
+        <!-- accordion menu with buttons -->
+        <script type="text/javascript">
+            window.onload = function () {
+                var headers = document.querySelectorAll(".accordion");
+                for (var i in headers) {
+                    headers[i].onclick = function () {
+                        var ul = this.querySelectorAll("ul")[0];
+                        if (ul.style.display == "block")
+                            ul.style.display = "none";
+                        else
+                            ul.style.display="block";
+                    };
+                }
+                document.getElementById("tennis_button").onclick = function () {
+                    window.location = "http://en.wikipedia.org/wiki/Tennis";
+                };
+            }
+        </script>
+        <style type="text/css">
+            .accordion ul{
+                display:none
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 id="heading">Accordion - Task 4</h1>
+        <p tabindex=1>Click in the sports item and then click in the tenis link.</p>
+
+        <div class="accordion">
+            <h2><button>News</button></h2>
+            <ul>
+                <li><button>National</button></li>
+                <li><button>International</button></li>
+            </ul>
+        </div>
+        <div class="accordion">
+            <h2><button>Sports</button></h2>
+            <ul>
+                <li><button>Soccer</button></li>
+                <li><button>Footbal</button></li>
+                <li><button>Voley</button></li>
+                <li><button id="tennis_button">Tenis</button></li>
+                <li><button>Basketbal</button></li>
+            </ul>
+        </div>
+        <div class="accordion">
+            <h2><button>Entertainment</button></h2>
+            <ul>
+                <li><button>Videos</button></li>
+                <li><button>Music</button></li>
+                <li><button>Books</button></li>
+            </ul>
+        </div>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

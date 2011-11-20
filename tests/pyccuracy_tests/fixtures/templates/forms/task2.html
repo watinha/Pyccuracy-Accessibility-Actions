@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Forms - Task 2</title>
+        <!-- simple form correctly labelled, however with span
+             element as the submit button and without tabindex attribute -->
+        <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("submit").onclick = function () {
+                    var first_name = document.getElementById("first_name").value,
+                        last_name = document.getElementById("last_name").value,
+                        cellphone = document.getElementById("cellphone").value,
+                        home_address = document.getElementById("home_address").value;
+
+                    window.location = "form_submit.html?" +
+                                      "first_name=" + first_name + "&" +
+                                      "last_name=" + last_name + "&" +
+                                      "cellphone=" + cellphone + "&" +
+                                      "home_address=" + home_address;
+                };
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Forms - Task 2</h1>
+        <p tabindex=1>Fill and submit the following form with the requested information</p>
+        <p>
+            <label for="first_name">First Name</label> : <input type="text" id="first_name" name="first_name" value="" />
+        </p>
+        <p>
+            <label for="last_name">Last Name</label> : <input type="text" id="last_name" name="last_name" value="" />
+        </p>
+        <p>
+            <label for="cellphone">Celphone</label> : <input type="text" id="cellphone" name="cellphone" value="" />
+        </p>
+        <p>
+            <label for="home_address">Home address</label> : <input type="text" id="home_address" name="home_address" value="" />
+        </p>
+
+        <span id="submit">Submit the form</span>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>

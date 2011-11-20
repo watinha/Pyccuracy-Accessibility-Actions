@@ -1,0 +1,71 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Tabbed menu - Task 1</title>
+        <!-- tabbed menu with no keyboard focus-->
+        <style type="text/css">
+        div.tabs > span {
+            display: inline;
+            margin: 10px;
+            background-color: #AAAAAA;
+            padding: 10px;
+        }
+        div.tabs {
+        }
+        div.tabs_body {
+            height: 200px;
+            width: 400px;
+        }
+        div.tabs_body > div{
+            display:none;
+            border: solid 1px black;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        </style>
+        <script type="text/javascript">
+        window.onload = function () {
+            var tabs = document.querySelectorAll("div.tabs > span");
+            for (var i in tabs) {
+                tabs[i].count = i;
+                tabs[i].onclick = function () {
+                    var tabs_body = document.querySelectorAll("div.tabs_body > div");
+                    for (var j in tabs_body) {
+                        if (tabs_body[j].style)
+                            tabs_body[j].style.display = "none";
+                    }
+                    for (var j in tabs) {
+                        if (tabs[j].style)
+                            tabs[j].style.backgroundColor = "#AAAAAA";
+                    }
+                    this.style.backgroundColor = "#CCCCCC";
+                    tabs_body[this.count].style.display = "block";
+                }
+            }
+            var evt = document.createEvent("MouseEvent");
+            evt.initMouseEvent("click", true, true, window);
+            tabs[0].dispatchEvent(evt);
+        }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading">Tabbed Menu - Task 1</h1>
+        <p tabindex=1>Select the "Contact info" tab and then select the email link</p>
+
+        <div class="tabs">
+            <span>Home</span><span>Contact info</span>
+        </div>
+        <div class="tabs_body">
+            <div id="home_tab">
+                <p>Some useful information users should be aware of. Some very useful information for everybody</p>
+            </div>
+            <div id="contact_tab">
+                <p>Some other useful information about users, and some contact info as well. Like contact info and other alike. Next there is the <a href="http://mail.yahoo.com">email</a> and <a href="#">some other contacts</a>.</p>
+            </div>
+        </div>
+
+        <a href="#">Give up this task</a>
+    </body>
+
+</html>
