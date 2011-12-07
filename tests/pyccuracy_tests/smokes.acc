@@ -7,7 +7,7 @@ Given
     I go to Google Page
     And I wait for the page to load
 When
-    I tab navigate to "Pesquisa Google" element
+    I tab navigate to "Pesquisar" element
     And I type "watinha"
     And I press enter
     And I wait for 3 seconds

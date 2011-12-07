@@ -16,14 +16,14 @@ Then
 
 Scenario 2 - Submiting a form with enter keyboard presses
 Given
-    I go to "http://www.google.com.br"
+    I go to "http://www.amazon.com"
     And I wait for the page to load
     And I wait for 3 seconds
 When
-    I tab navigate to "Pesquisa Google" element
-    And I type "watinha"
+    I tab navigate to "Search for" element
+    And I type "Harry Potter"
     And I press enter
-    And I wait for 3 seconds
+    And I wait for the page to load
 Then
-    And I see "watinha - Pesquisa Google" title
+    And I see "Amazon.com: Harry Potter" title
 

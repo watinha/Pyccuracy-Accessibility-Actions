@@ -7,8 +7,8 @@ Given
     I go to "http://www.google.com"
     I wait for the page to load
 When
-    I tab navigate to "Pesquisa Google" element
+    I tab navigate to "Pesquisar" element
     And I type "wall"
     And I wait for 3 seconds
 Then
-    I see that current page contains "<b>walmart</b>"
+    I see that current page contains "mart"
