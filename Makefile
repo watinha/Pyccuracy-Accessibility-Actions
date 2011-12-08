@@ -2,6 +2,8 @@
 
 PYTHON=/usr/bin/python
 RM=/bin/rm
+export TESTS_PATH
+TESTS_PATH=tests/pyccuracy_tests
 
 tests-actions:
 	@./bin/run_actions_tests.py
@@ -10,7 +12,7 @@ tests-jsunit:
 	@./bin/run_js_codes_test.sh
 
 tests-pyccuracy:
-	@./bin/run_pyccuracy.sh
+	@./bin/run_pyccuracy.sh $(TESTS_PATH)
 
 help:
 	@echo "****************************************************"
