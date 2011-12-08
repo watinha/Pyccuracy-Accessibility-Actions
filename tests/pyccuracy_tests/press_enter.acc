@@ -24,6 +24,7 @@ When
     And I type "Harry Potter"
     And I press enter
     And I wait for the page to load
+    And I wait for 5 seconds
 Then
     And I see "Amazon.com: Harry Potter" title
 
