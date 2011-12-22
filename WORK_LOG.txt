@@ -13,3 +13,5 @@ WORK LOG
 - Implement look for content action ***
 
 - ignore non-textual elements
+
+- ignore text that is inside of non-visible elements in the dom while doing tab navigation
