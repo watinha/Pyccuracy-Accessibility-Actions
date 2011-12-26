@@ -6,6 +6,12 @@ TabNavigationTest.prototype.run_test = function() {
 
     module("tab_navigation");
 
+    // setting up the fixture elements
+    var fixture = document.createElement('div');
+    fixture.innerHTML = "" +
+    "";
+    document.getElementById("qunit-fixture").appendChild(fixture);
+
     test("tab_navigation should return the text inside the element it reaches and set the activeElement", function(){
         var action = new TabNavigation();
         var result = action.execute("first button");
@@ -90,5 +96,21 @@ TabNavigationTest.prototype.run_test = function() {
         var action = new TabNavigation();
         var result = action.execute("Continue");
         equal(result, "Continue");
+    });
+
+    test("get inner content should search for text content", function () {
+        var searchable_element = document.getElementById('search_content');
+        var action = new TabNavigation();
+        var result = action.search_content(searchable_element, "visible content");
+
+        ok(result);
+    });
+
+    test("get inner content should search not find non-visible elements", function () {
+        var searchable_element = document.getElementById('search_content');
+        var action = new TabNavigation();
+        var result = action.search_content(searchable_element, "non-visible content");
+
+        ok( ! result);
     });
 };

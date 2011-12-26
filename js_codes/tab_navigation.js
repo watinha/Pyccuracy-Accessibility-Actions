@@ -68,6 +68,26 @@ TabNavigation.prototype.get_active_index = function () {
     return current_index;
 }
 /*
+ * searching for textual content inside a node
+ */
+TabNavigation.prototype.search_content = function (search_element, search_text) {
+    var child_elements = search_element.getElementsByTagName("*");
+    for (var child_index in child_elements) {
+        // searching for nodes inside the child elements
+        var child_nodes = child_elements[child_index].childNodes;
+
+        for (var node_index in child_nodes) {
+            // text node
+            if (child_nodes[node_index].nodeType == 3 &&
+                child_nodes[node_index].nodeValue.search(search_text) >= 0 &&
+                this.is_visible(child_elements[child_index])) {
+                return true;
+            }
+        }
+
+    };
+}
+/*
  * Setting focus for focusable_nodes in order looking for element_text within it
  */
 TabNavigation.prototype.search_for_focusable = function (element_text, tab_limit) {
