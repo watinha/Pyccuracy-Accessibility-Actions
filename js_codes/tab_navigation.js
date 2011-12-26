@@ -71,7 +71,17 @@ TabNavigation.prototype.get_active_index = function () {
  * searching for textual content inside a node
  */
 TabNavigation.prototype.search_content = function (search_element, search_text) {
-    var child_elements = search_element.getElementsByTagName("*");
+    var child_elements = search_element.getElementsByTagName("*"),
+        child_nodes = search_element.childNodes;
+
+    // searching the direct children first
+    for (var node_index in child_nodes) {
+            // text node
+            if (child_nodes[node_index].nodeType == 3 &&
+                child_nodes[node_index].nodeValue.search(search_text) >= 0)
+                return true;
+    };
+
     for (var child_index in child_elements) {
         // searching for nodes inside the child elements
         var child_nodes = child_elements[child_index].childNodes;
@@ -80,9 +90,8 @@ TabNavigation.prototype.search_content = function (search_element, search_text) 
             // text node
             if (child_nodes[node_index].nodeType == 3 &&
                 child_nodes[node_index].nodeValue.search(search_text) >= 0 &&
-                this.is_visible(child_elements[child_index])) {
+                this.is_visible(child_elements[child_index]))
                 return true;
-            }
         }
 
     };
@@ -103,7 +112,7 @@ TabNavigation.prototype.search_for_focusable = function (element_text, tab_limit
     for (cont = (current_index); (cont - current_index) < focusable_nodes.length && (cont - current_index) <= tab_limit; cont++){
         var current_node = cont % focusable_nodes.length;
         focusable_nodes[current_node].focus();
-        if (focusable_nodes[current_node].innerHTML.search(element_text) >= 0)
+        if (this.search_content(focusable_nodes[current_node], element_text))
             return element_text;
         if(focusable_nodes[current_node].title && focusable_nodes[current_node].title.search(element_text) >= 0)
             return element_text;

@@ -28,7 +28,7 @@
     <h2 id="qunit-userAgent"></h2>
     <ol id="qunit-tests"></ol>
     <div id="qunit-fixture">
-      <h1 tabindex=1>First header</h1>
+      <h1 id="first_focusable" tabindex=1>First header</h1>
       <h2>Second header</h2>
       <a id="link1" href="#link1">link 1</a>
       <a href="#link2">link 2</a>
@@ -49,7 +49,7 @@
       <button>first button</button>
       <span tabindex=0>interactive span</span>
       <div>Some text inside a div</div>
-      <div id="search_content">
+      <div tabindex=0 id="search_content">
         <span>visible content</span>
         <span style="display:none">non-visible content</span>
       </div>

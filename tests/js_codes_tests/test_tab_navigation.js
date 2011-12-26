@@ -6,13 +6,8 @@ TabNavigationTest.prototype.run_test = function() {
 
     module("tab_navigation");
 
-    // setting up the fixture elements
-    var fixture = document.createElement('div');
-    fixture.innerHTML = "" +
-    "";
-    document.getElementById("qunit-fixture").appendChild(fixture);
-
     test("tab_navigation should return the text inside the element it reaches and set the activeElement", function(){
+        document.getElementsByTagName("h1")[1].focus();
         var action = new TabNavigation();
         var result = action.execute("first button");
         equal(result, "first button");
@@ -97,6 +92,14 @@ TabNavigationTest.prototype.run_test = function() {
         var result = action.execute("Continue");
         equal(result, "Continue");
     });
+
+    test("execute should not return true for elements that are hidden inside focusable elements", function () {
+        var action = new TabNavigation();
+        var result = action.execute("non-visible content");
+
+        equal(result, "element not found");
+    });
+
 
     test("get inner content should search for text content", function () {
         var searchable_element = document.getElementById('search_content');
