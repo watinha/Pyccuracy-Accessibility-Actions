@@ -6,12 +6,8 @@ WORK LOG
 
 - Follow labels for input elements in navigation actions
 
-- Fix press enter action to follow forms *
+- Fix press enter action to follow forms * (for next release)
     - aria roles attribute recognition
     - error reporting in the action
 
-- Implement look for content action ***
-
-- ignore non-textual elements
-
-- ignore text that is inside of non-visible elements in the dom while doing tab navigation
+- Implement look for content action **for next release*
