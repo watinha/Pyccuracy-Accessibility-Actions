@@ -20,7 +20,7 @@ Given
     And I wait for the page to load
     And I wait for 3 seconds
 When
-    I tab navigate to "Search for" element
+    I tab navigate to "Search for" element with 90 key presses
     And I type "Harry Potter"
     And I press enter
     And I wait for the page to load
